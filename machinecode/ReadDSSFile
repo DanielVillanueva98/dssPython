@@ -1,0 +1,11 @@
+from pydsstools.pydsstools.heclib.dss import HecDss
+
+dss_file = " "
+pathname = " "
+fid = HecDss.Open(dss_file)
+ts = fid.read_ts(pathname)
+values = ts.values
+i=0
+for data in values:
+    print(str(ts.pytimes[i])+","+str(data))
+    i+=1
