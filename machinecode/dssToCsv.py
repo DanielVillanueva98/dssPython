@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-from pydsstools.heclib.dss import HecDss
+from machinecode.pydsstools.pydsstools.heclib.dss import HecDss
+
 
 dss_file = "C:\\Users\\HEC\\Desktop\\DssFiles\\FlowData.dss"
 pathname = "/CUMBERLAND RIVER/BARBOURVILLE/FLOW//30MIN/OBS/"
