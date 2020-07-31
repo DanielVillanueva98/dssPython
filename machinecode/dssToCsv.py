@@ -10,12 +10,12 @@ pathname3 = "/CUMBERLAND RIVER/CUMBERLAND FALLS/FLOW//30MIN/OBS/"
 pathname4 = "/CUMBERLAND RIVER/WILLIAMSBURG/FLOW//30MIN/OBS/"
 
 fid = HecDss.Open(dss_file)
-pathArr = [pathname,pathname4, pathname2, pathname3, ]
-names = ["data1","data2","data3","data4"]
+pathArr = [pathname,pathname2, pathname3, pathname4]
+names = ["data1", "data2", "data3","data4"]
 
 ts = fid.read_ts(pathname)
 values = ts.values
-df = pd.DataFrame(ts.pytimes,columns=['Dates'])
+df = pd.DataFrame(ts.pytimes, columns=['Dates'])
 i = 0
 
 for path in pathArr:
@@ -23,10 +23,8 @@ for path in pathArr:
     df[names[i]] = ts.values
     i += 1
 
-
-df.plot()
+df.drop(['Dates'],axis = 1).plot(subplots = True)
 plt.show()
-
 print(df)
 
 # dataSet = {'Dates': ts.pytimes, 'Data': ts.values}
